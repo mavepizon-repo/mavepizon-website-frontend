@@ -1,0 +1,168 @@
+/* ===== Page Background ===== */
+.detail-page {
+  min-height: 100vh;
+  background: linear-gradient(160deg, #e0f2fe 0%, #ffffff 50%, #f0f9ff 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  padding-bottom: 120px;
+}
+
+/* ===== Back Button ===== */
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(14,165,233,0.3);
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background: #0284c7;
+  transform: translateX(-3px);
+}
+
+/* ===== Slider ===== */
+.slider-wrap {
+  position: relative;
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1000px;
+  height: 420px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(14,165,233,0.2);
+}
+
+.slider-wrap img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slider-wrap img.active {
+  opacity: 1;
+}
+
+/* ===== Content Card ===== */
+.detail-content {
+  position: relative;
+  max-width: 900px;
+  margin: 30px auto 0;
+  padding: 40px;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff, #f0f9ff);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  box-shadow: 
+    0 10px 40px rgba(14,165,233,0.15),
+    0 0 0 1px rgba(255,255,255,0.4) inset;
+
+  backdrop-filter: blur(10px);
+
+  animation: fadeUp 0.6s ease;
+}
+
+/* ===== Category Badge ===== */
+.detail-content::before {
+  content: attr(data-category);
+  position: absolute;
+  top: -14px;
+  left: 30px;
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(14,165,233,0.4);
+}
+
+/* ===== Meta Info ===== */
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.meta-item {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #0369a1;
+  box-shadow: 0 2px 6px rgba(14,165,233,0.15);
+}
+
+/* ===== Title ===== */
+.highlight-box {
+  margin-bottom: 15px;
+}
+
+.highlight-box p {
+  font-size: 28px;
+  font-weight: 800;
+  color: #0c4a6e;
+  margin-bottom: 10px;
+}
+
+/* ===== Divider ===== */
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ===== Description ===== */
+.full-text p {
+  font-size: 16px;
+  color: #334155;
+  line-height: 1.9;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .slider-wrap {
+    height: 260px;
+  }
+
+  .detail-content {
+    margin: 20px auto;
+    padding: 18px;
+    width: 95%;
+  }
+
+  .highlight-box p {
+    font-size: 20px;
+  }
+  .full-text p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+}
