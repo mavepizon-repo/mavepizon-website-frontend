@@ -69,7 +69,7 @@ function MessageBubble({ msg }) {
         </div>
       )}
       <div className="cb-bubble">
-        <p>{msg.content}</p>
+        <p dangerouslySetInnerHTML={{ __html: msg.content }} />
         <span className="cb-time">{msg.time}</span>
       </div>
     </div>
@@ -78,6 +78,11 @@ function MessageBubble({ msg }) {
 
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState([
+  "Show all courses 📚",
+  "Cheapest course?",
+  "AI & ML details 🤖"
+]);
   const [messages, setMessages] = useState([
     {
       role: "assistant",
@@ -113,26 +118,27 @@ export default function Chatbot() {
     setLoading(true);
 
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+      const response = await fetch("http://localhost:5000/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": "sk-ant-api03-ABCdef123456789xyz",
-          "anthropic-version": "2023-06-01",
-          "anthropic-dangerous-direct-browser-access": "true",
         },
         body: JSON.stringify({
-          model: "claude-sonnet-4-20250514",
-          max_tokens: 1000,
+          messages: newMessages.map(m => ({
+            role: m.role,
+            content: m.content,
+          })),
           system: SYSTEM_PROMPT,
-          messages: newMessages
-            .filter((m) => m.role !== "system")
-            .map((m) => ({ role: m.role, content: m.content })),
         }),
       });
 
       const data = await response.json();
-      const reply = data?.content?.[0]?.text || "Sorry, I couldn't understand that. Please try again!";
+      console.log("API RESPONSE:", data);
+      const reply = data?.reply || "Sorry, I couldn't understand that. Please try again!";
+
+      if (data?.suggestions) {
+        setSuggestions(data.suggestions);
+      }
 
       setMessages((prev) => [
         ...prev,
@@ -219,11 +225,11 @@ export default function Chatbot() {
 
         {/* Quick Suggestions */}
         <div className="cb-suggestions">
-          {QUICK_SUGGESTIONS.map((s, i) => (
-            <button key={i} className="cb-chip" onClick={() => sendMessage(s)}>
-              {s}
-            </button>
-          ))}
+          {suggestions.map((s, i) => (
+          <button key={i} className="cb-chip" onClick={() => sendMessage(s)}>
+            {s}
+          </button>
+        ))}
         </div>
 
         {/* Input */}
