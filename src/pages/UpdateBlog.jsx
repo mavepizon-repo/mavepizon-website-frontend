@@ -94,7 +94,7 @@ function UpdateBlog() {
     }
 
     const res = await fetch(
-      `http://localhost:5000/api/blog/update/${selectedId}`,
+      `${process.env.REACT_APP_API_URL}/api/blog/update/${selectedId}`,
       {
         method: "PUT",
         headers: {

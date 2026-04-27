@@ -15,7 +15,7 @@ function DeleteBlog() {
   // FETCH BLOGS
   const fetchBlogs = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/blog/all");
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/blog/all`);
       const data = await res.json();
 
       const safeData = Array.isArray(data.data) ? data.data : [];
@@ -38,7 +38,7 @@ function DeleteBlog() {
     }
 
     const res = await fetch(
-      `http://localhost:5000/api/blog/delete/${id}`,
+      `${process.env.REACT_APP_API_URL}/api/blog/delete/${id}`,
       {
         method: "DELETE",
         headers: {

@@ -76,7 +76,7 @@ function AddBlog() {
         return;
       }
 
-      const res = await fetch("http://localhost:5000/api/blog/create", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/blog/create`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

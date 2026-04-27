@@ -22,7 +22,7 @@ const Contact = ({ onNavigate }) => {
   message,
 }
   try {
-    const res = await fetch("http://localhost:5000/api/form/submit", {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/form/submit`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
