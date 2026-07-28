@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../mavepizon demo"
+		},
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "mavepizon demo"
+	}
+}
