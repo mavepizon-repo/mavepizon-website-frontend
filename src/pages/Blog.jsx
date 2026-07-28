@@ -14,7 +14,9 @@ function Blog() {
   // ✅ fetch blogs
   const fetchBlogs = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/blog/all`);
+      const res = await fetch(
+  `${process.env.REACT_APP_BACKEND_URL}/api/blog/all`
+);
       const data = await res.json();
 
       if (res.ok) {
@@ -72,7 +74,7 @@ function Blog() {
                     src={
                       img.startsWith("http")
                         ? img
-                        : `${process.env.REACT_APP_API_URL}${img}`
+                        : `${process.env.REACT_APP_BACKEND_URL}${img}`
                     }
                     className={`card-image ${
                       i === (activeSlides[item._id] || 0)
