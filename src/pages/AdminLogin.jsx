@@ -10,33 +10,46 @@ function AdminLogin() {
   const navigate = useNavigate();
 
   const login = async () => {
-    setError("");
-    try {
-      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/admin/login`, {
+  setError("");
+
+  try {
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/api/admin/login`,
+      {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: user, password: pass }),
-      });
-
-      const data = await res.json();
-      console.log(data);
-
-      if (res.ok) {
-        localStorage.setItem("adminToken", data.token);
-        localStorage.setItem("admin", "true");
-        navigate("/admin/dashboard");
-      } else {
-        setError(data.message || "Invalid credentials");
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user,
+          password: pass,
+        }),
       }
-    } catch (err) {
-      console.error(err);
-      setError("Server error. Please try again.");
-    }
-  };
+    );
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") login();
-  };
+    const data = await res.json();
+
+    console.log("Login Response:", data);
+
+    if (res.ok) {
+      localStorage.setItem("adminToken", data.token);
+      localStorage.setItem("admin", "true");
+
+      navigate("/admin/dashboard");
+    } else {
+      setError(data.message || "Invalid credentials");
+    }
+  } catch (err) {
+    console.error("Login Error:", err);
+    setError("Server error. Please try again.");
+  }
+};
+
+const handleKeyDown = (e) => {
+  if (e.key === "Enter") {
+    login();
+  }
+};
 
   return (
     <div className="al-wrap">

@@ -28,7 +28,10 @@ import AddBlog from './pages/AddBlog';
 import UpdateBlog from './pages/UpdateBlog';
 import DeleteBlog from './pages/DeleteBlog';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+// const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+// const API = `${BACKEND_URL}/api`;
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 function App() {
