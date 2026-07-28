@@ -11,7 +11,7 @@ function BlogDetail() {
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/api/blog/${id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBlog(data.data);
@@ -29,7 +29,7 @@ function BlogDetail() {
     blog?.images?.map((img) =>
       img.startsWith("http")
         ? img
-        : `${process.env.REACT_APP_API_URL}${img}`
+        : `${process.env.REACT_APP_BACKEND_URL}${img}`
     ) || [];
 
   useEffect(() => {
