@@ -3,7 +3,6 @@ import { useNavigate, useLocation, Routes, Route } from "react-router-dom";
 import FloatingButtons from './components/FloatingButtons';
 import './App.css';
 import axios from 'axios';
-import ChatBot from './components/ChatBot'
 import Topbar from './components/Topbar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -99,7 +98,6 @@ function App() {
 
             {/* ✅ ADD HERE */}
             <FloatingButtons />
-            <ChatBot />
           </>
         } />
 
@@ -113,7 +111,6 @@ function App() {
 
             {/* ✅ ADD HERE */}
             <FloatingButtons />
-            <ChatBot />
           </>
         } />
 
@@ -150,7 +147,6 @@ function App() {
 
             <Footer onNavigate={handleNavigate} />
             <FloatingButtons />
-            <ChatBot/>
           </>
         } />
 
