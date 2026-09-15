@@ -1,30 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { services } from "../data/services";
 import { projectsData } from "../data/projects";
 
 const ITServicesPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // ✅ FILTER LOGIC
-  const filteredProjects =
-    selectedCategory === "All"
-      ? projectsData
-      : projectsData.filter(
-          (project) => project.category === selectedCategory
-        );
-
-  // ✅ CLICK HANDLE + SCROLL
-  const handleServiceClick = (category) => {
-    setSelectedCategory(category);
-
-    setTimeout(() => {
-      const el = document.getElementById("projects");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
-    }, 100);
-  };
-
   return (
     <div className="page active">
 
@@ -34,58 +12,69 @@ const ITServicesPage = () => {
           <h2>Our Services</h2><br></br>
 
           <div className="services-grid">
+            {services.map((service) => (
+              <div key={service.id} className="svc-card">
+                <div className="svc-card-inner">
 
-            {/* ALL */}
-            <div
-              className={`service-card ${
-                selectedCategory === "All" ? "active" : ""
-              }`}
-              onClick={() => handleServiceClick("All")}
-            >
-              <div className="service-icon">🎯</div>
-              <h3>All Services</h3>
-              <p>View all projects</p>
-              <div className="service-count">
-                {projectsData.length} Projects
-              </div>
-            </div>
+                  {/* FRONT */}
+                  <div className="svc-face svc-front">
+                    <div className="service-icon">{service.icon}</div>
+                    <h3>{service.title}</h3>
+                    <p>{service.description}</p>
+                  </div>
 
-            {/* SERVICES */}
-            {services.map((service) => {
-              const projectCount = projectsData.filter(
-                (p) => p.category === service.projectCategory
-              ).length;
-
-              return (
-                <div
-                  key={service.id}
-                  className={`service-card ${
-                    selectedCategory === service.projectCategory
-                      ? "active"
-                      : ""
-                  }`}
-                  onClick={() =>
-                    handleServiceClick(service.projectCategory)
-                  }
-                >
-                  <div className="service-icon">{service.icon}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.description}</p>
-
-                  {/* ✅ CLICKABLE PROJECT COUNT */}
+                  {/* BACK */}
                   <div
-                    className="service-count"
-                    onClick={(e) => {
-                      e.stopPropagation(); // prevent double click
-                      handleServiceClick(service.projectCategory);
+                    className="svc-face svc-back"
+                    style={{
+                      background: `linear-gradient(135deg,${service.bg[0]},${service.bg[1]})`,
                     }}
                   >
-                    {projectCount} Project
-                    {projectCount !== 1 ? "s" : ""}
+                    <h4>
+                      {service.icon} {service.title}
+                    </h4>
+
+                    {service.stack.type === "groups" && (
+                      <>
+                        {service.stack.groups.map((group, gi) => (
+                          <div key={gi}>
+                            <div className="svc-group-label">{group.label}</div>
+                            <div className="svc-chip-list">
+                              {group.items.map((item, ii) => (
+                                <span key={ii} className="svc-chip">
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </>
+                    )}
+
+                    {service.stack.type === "flat" && (
+                      <div className="svc-chip-list">
+                        {service.stack.items.map((item, ii) => (
+                          <span key={ii} className="svc-chip">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {service.stack.type === "pipeline" && (
+                      <div className="svc-flow">
+                        {service.stack.items.map((item, ii) => (
+                          <span key={ii} className="svc-flow-chip">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    )}
                   </div>
+
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -93,14 +82,10 @@ const ITServicesPage = () => {
       {/* ================= PROJECTS ================= */}
       <section className="section section-light" id="projects">
         <div className="container">
-          <h2>
-            {selectedCategory === "All"
-              ? "All Projects"
-              : `${selectedCategory} Projects`}
-          </h2><br></br>
+          <h2>Our Projects</h2><br></br>
 
           <div className="projects-grid">
-            {filteredProjects.map((project) => (
+            {projectsData.map((project) => (
               <div key={project.id} className="project-card">
                 <div className="project-image">
                   <img src={project.image} alt={project.title} />
@@ -113,12 +98,6 @@ const ITServicesPage = () => {
               </div>
             ))}
           </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="no-projects">
-              <h3>No projects found</h3>
-            </div>
-          )}
         </div>
       </section>
 
