@@ -126,5 +126,38 @@ export const services = [
         "Grafana"
       ]
     }
+  },
+  {
+    id: 7,
+    title: "AI",
+    iconClass: "bi bi-robot",
+    icon: "🤖",
+    description: "Smart AI & Generative AI systems that automate and predict results.",
+    projectCategory: "AI",
+    bg: ["#ec4899", "#db2777"],
+    stack: {
+      type: "pipeline",
+      items: [
+        "Python",
+        "NumPy",
+        "Pandas",
+        "Scikit-learn",
+        "TensorFlow/PyTorch",
+        "OpenCV",
+        "YOLO",
+        "NLP",
+        "NLTK/spaCy",
+        "Hugging Face",
+        "Transformers",
+        "Generative AI",
+        "LLM",
+        "RAG",
+        "Vector DB",
+        "MLflow",
+        "FastAPI",
+        "Docker",
+        "CUDA"
+      ]
+    }
   }
 ];
