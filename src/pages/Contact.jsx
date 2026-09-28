@@ -191,7 +191,7 @@ const Contact = ({ onNavigate }) => {
                   <option>Tirunelveli</option>
                   <option>Thisyanvilai</option>
                   <option>Coimbatore</option>
-                  <option>Nagercoil</option>
+                  {/* <option>Nagercoil</option> */}
                   <option>Online</option>
                 </select>
               </div>
