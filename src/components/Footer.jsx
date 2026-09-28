@@ -29,7 +29,7 @@ const Footer = ({ onNavigate }) => {
             </p>
             <p className="fp">📞 81444 11103</p>
             <p style={{ color: 'rgba(255,255,255,.35)', fontSize: '11.5px', marginTop: '3px' }}>
-              Tirunelveli ·  coimbatore · Nagercoil . Thisyanvilai 
+              Tirunelveli ·  coimbatore ·  Thisyanvilai 
             </p>
             <div className="fb-soc" style={{ marginTop: '12px' }}>
               <a

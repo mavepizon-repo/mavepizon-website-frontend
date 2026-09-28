@@ -14,11 +14,11 @@ const Topbar = () => (
             <span className="branches-scroll">
               <span className="pulse-dot"></span>
               Tirunelveli <span className="hq">(Head Office)</span> &nbsp;·&nbsp;
-              Coimbatore &nbsp;·&nbsp; Nagercoil &nbsp;·&nbsp; Thisyanvilai
+              Coimbatore &nbsp;·&nbsp;  Thisyanvilai
               &nbsp;&nbsp;&nbsp;&nbsp;
               <span className="pulse-dot"></span>
               Tirunelveli <span className="hq">(Head Office)</span> &nbsp;·&nbsp;
-              Coimbatore &nbsp;·&nbsp; Nagercoil &nbsp;·&nbsp; Thisyanvilai
+              Coimbatore &nbsp;·&nbsp;  Thisyanvilai
             </span>
           </span>
         </div>
@@ -29,13 +29,13 @@ const Topbar = () => (
         <span className="contact-track">
           📞 <a href="tel:8144411103">81444 11103</a>
           <span className="sep">|</span>
-          ✉ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@mavepizon.com"
-               target="_blank" rel="noopener noreferrer">info@mavepizon.com</a>
+          ✉ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=projects@mavepizon.com"
+               target="_blank" rel="noopener noreferrer">projects@mavepizon.com</a>
           &nbsp;&nbsp;&nbsp;&nbsp;
           📞 <a href="tel:8144411103">81444 11103</a>
           <span className="sep">|</span>
-          ✉ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@mavepizon.com"
-               target="_blank" rel="noopener noreferrer">info@mavepizon.com</a>
+          ✉ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=projects@mavepizon.com"
+               target="_blank" rel="noopener noreferrer">projects@mavepizon.com</a>
           &nbsp;&nbsp;&nbsp;&nbsp;
         </span>
       </div>

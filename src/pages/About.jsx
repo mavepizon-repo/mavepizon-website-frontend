@@ -212,7 +212,7 @@ const About = ({ onNavigate }) => {
                   '525H/1A, 2nd Street, Udangudi Road\nThisaiyanvilai, Tirunelveli – 627 657',
                 ],
                 ['🏬', 'Coimbatore', '5-6, PM Colony, Rathinapuri, Tatabad, Coimbatore 641027'],
-                ['🏬', 'Nagercoil', 'Nagercoil, Kanyakumari'],
+                // ['🏬', 'Nagercoil', 'Nagercoil, Kanyakumari'],
               ].map(([ico, h, p]) => (
                 <div key={h} className="branch-card">
                   <span className="branch-icon">{ico}</span>
