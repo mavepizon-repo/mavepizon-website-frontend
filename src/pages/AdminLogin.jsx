@@ -14,7 +14,7 @@ function AdminLogin() {
 
   try {
     const res = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/api/admin/login`,
+      `${process.env.REACT_APP_BACKEND_URL}/admin/login`,
       {
         method: "POST",
         headers: {
