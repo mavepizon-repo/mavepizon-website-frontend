@@ -32,7 +32,7 @@ import DeleteBlog from './pages/DeleteBlog';
 // const API = `${BACKEND_URL}/api`;
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+const API = BACKEND_URL;
 
 function App() {
   const [page, setPage] = useState('home');
