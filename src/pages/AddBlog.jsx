@@ -66,7 +66,7 @@ function AddBlog() {
         return;
       }
 
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/create`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/blog/create`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,

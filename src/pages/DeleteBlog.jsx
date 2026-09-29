@@ -14,7 +14,7 @@ function DeleteBlog() {
 
   const fetchBlogs = async () => {
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/all`);
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/blog/all`);
       const data = await res.json();
       setBlogs(Array.isArray(data.data) ? data.data : []);
     } catch (err) {
@@ -33,7 +33,7 @@ function DeleteBlog() {
       }
 
       const res = await fetch(
-       `${process.env.REACT_APP_BACKEND_URL}/api/blog/delete/${id}`,
+       `${process.env.REACT_APP_BACKEND_URL}/blog/delete/${id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },

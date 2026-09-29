@@ -21,7 +21,7 @@ function UpdateBlog() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-   fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/all`)
+   fetch(`${process.env.REACT_APP_BACKEND_URL}/blog/all`)
       .then((res) => res.json())
       .then((data) => setBlogs(data.data))
       .catch((err) => console.error(err));
@@ -76,7 +76,7 @@ function UpdateBlog() {
       }
 
       const res = await fetch(
-       `${process.env.REACT_APP_BACKEND_URL}/api/blog/update/${selectedId}`,
+       `${process.env.REACT_APP_BACKEND_URL}/blog/update/${selectedId}`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },

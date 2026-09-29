@@ -20,7 +20,7 @@ function AdminDashboard() {
   const fetchBlogs = async () => {
     try {
       const res = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/blog/all`
+        `${process.env.REACT_APP_BACKEND_URL}/blog/all`
       );
 
       if (!res.ok) {

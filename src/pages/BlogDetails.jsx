@@ -11,7 +11,7 @@ function BlogDetail() {
   const intervalRef = useRef(null);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/blog/${id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/blog/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setBlog(data.data);
